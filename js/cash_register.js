@@ -1,7 +1,7 @@
 window.cashRegister = (function (){
 
-const display = document.getElementById("display");
-
+const getDisplay = document.getElementById("display");
+let balance = 0;
 
 //grab elements
 const key1 = document.getElementById("key1");
@@ -26,47 +26,56 @@ const keyDeposit = document.getElementById("keyDeposit");
 const keyWithdraw = document.getElementById("keyWithdraw");
 const keyEqual = document.getElementById("keyEqual");
 
-//let currentDisplay = display.innerHTML;
 
 //add event listeners (manipulate elements)
 key1.addEventListener("click", function(){
-  display.innerHTML += 1;
+  display.innerHTML += "1";
 });
 
 key2.addEventListener("click", function(){
-  display.innerHTML += 2;
+  display.innerHTML += "2";
 });
 key3.addEventListener("click", function(){
-  display.innerHTML += 3;
+  display.innerHTML += "3";
 });
 key4.addEventListener("click", function(){
-  display.innerHTML += 4;
+  display.innerHTML += "4";
 });
 key5.addEventListener("click", function(){
-  display.innerHTML += 5;
+  display.innerHTML += "5";
 });
 key6.addEventListener("click", function(){
-  display.innerHTML += 6;
+  display.innerHTML += "6";
 });
 key7.addEventListener("click", function(){
-  display.innerHTML += 7;
+  display.innerHTML += "7";
 });
 key8.addEventListener("click", function(){
-  display.innerHTML += 8;
+  display.innerHTML += "8";
 });
 key9.addEventListener("click", function(){
-  display.innerHTML += 9;
+  display.innerHTML += "9";
 });
 key0.addEventListener("click", function(){
-  display.innerHTML += 0;
+  display.innerHTML += "0";
 });
 key00.addEventListener("click", function(){
-  display.innerHTML += 00;
+  display.innerHTML += "00";
 });
 keyClear.addEventListener("click", function(){
-  display.innerHTML = 0;
+  display.innerHTML = "";
 });
-//keyAdd.addEventListener("click", calculator.add());
+
+//ADD
+keyAdd.addEventListener("click", function(){
+  toNum(getDisplay);
+
+});
+
+
+
+
+
 keySubtract.addEventListener("click", updateDisplay);
 keyMultiply.addEventListener("click", updateDisplay);
 keyDivide.addEventListener("click", updateDisplay);
@@ -76,15 +85,17 @@ keyDecimal.addEventListener("click", function(){
 keyBalance.addEventListener("click", updateDisplay);
 keyDeposit.addEventListener("click", updateDisplay);
 keyWithdraw.addEventListener("click", updateDisplay);
-keyEqual.addEventListener("click", calculator.getTotal);
+keyEqual.addEventListener("click", updateDisplay);
 
 function updateDisplay(){
+  getDisplay;
 
-  //concat?
   console.log("HI");
 }
 
-
+function toNum(input){
+  Number(input) = display.innterHTML;
+}
 
 
 
