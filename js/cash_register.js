@@ -133,8 +133,8 @@ keyDecimal.addEventListener("click", function(){
 
 keyClear.addEventListener("click", function(){
   input1 = "";
-  //window.calculator.load(toNum(input1));
-  display.innerHTML = "";
+  window.calculator.load(toNum(0));
+  display.innerHTML = "0.00";
 });
 
 //////////////////////////////////

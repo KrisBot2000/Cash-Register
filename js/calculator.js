@@ -18,26 +18,32 @@ window.calculator = (function () {
 
   function add(x){
     validation(x);
-    console.log("total",total);
-    console.log("x", x);
+    console.log("add function total:",total);
+    console.log("add function x:", x);
     total += x;
     return total;
   }
 
   function subtract(x){
     validation(x);
+    console.log("sub function total:",total);
+    console.log("sub function x:", x);
     total -= x;
     return total;
   }
 
   function multiply(x){
     validation(x);
+    console.log("mult function total:",total);
+    console.log("mult function x:", x);
     total = total*x;
     return total;
   }
 
   function divide(x){
     validation(x);
+    console.log("div function total:",total);
+    console.log("div function x:", x);
     total = total/x;
     return total;
   }
