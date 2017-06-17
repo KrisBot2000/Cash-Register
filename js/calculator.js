@@ -18,8 +18,8 @@ window.calculator = (function () {
 
   function add(x){
     validation(x);
-    console.log(total);
-    console.log(x);
+    console.log("total",total);
+    console.log("x", x);
     total += x;
     return total;
   }
