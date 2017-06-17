@@ -5,7 +5,7 @@ let balance = 0;
 let input1 = "";
 let input2 = "";
 let lastOperator = null;
-let turtle;
+let turtle = null;
 let getTotal = window.calculator.getTotal;
 
 //grab elements
@@ -245,16 +245,23 @@ function arithmetic(operator){
   }
   if(operator==="subtract"){
     console.log(lastOperator);
+    console.log("turtle1:", turtle);
+    if(turtle !== null){
+      // run input through SUBTRACT in calculator
+      turtle = window.calculator.subtract(toNum(input1));
+      console.log(turtle);
+    }else{
 
-    // run input through SUBTRACT in calculator
-    turtle = window.calculator.subtract(toNum(input1));
+      //update input
+      turtle = input1;
+      console.log("turtle2:", turtle);
 
-    //update input
-    input1 = turtle;
-
-    // load input into calculator
-    window.calculator.load(input1);
-
+      console.log(typeof input1);
+      console.log(toNum(input1));
+      // load input into calculator
+      window.calculator.load(toNum(input1));
+    }
+    console.log("turtle3:", turtle);
     // update display
     display.innerHTML = turtle;
   }

@@ -8,7 +8,7 @@ window.calculator = (function () {
   function load(x){
     validation(x);
     total = x;
-    console.log("total", total);
+    console.log("load total", total);
     return total;
   }
 
