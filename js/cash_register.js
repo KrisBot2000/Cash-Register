@@ -2,6 +2,9 @@ window.cashRegister = (function (){
 
 const getDisplay = document.getElementById("display");
 let balance = 0;
+let input1 = "";
+let input2 = "";
+let operator = null;
 
 //grab elements
 const key1 = document.getElementById("key1");
@@ -29,38 +32,60 @@ const keyEqual = document.getElementById("keyEqual");
 
 //add event listeners (manipulate elements)
 key1.addEventListener("click", function(){
-  display.innerHTML += "1";
+  input1 += "1";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 
 key2.addEventListener("click", function(){
-  display.innerHTML += "2";
+  input1 += "2";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 key3.addEventListener("click", function(){
-  display.innerHTML += "3";
+  input1 += "3";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 key4.addEventListener("click", function(){
-  display.innerHTML += "4";
+  input1 += "4";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 key5.addEventListener("click", function(){
-  display.innerHTML += "5";
+  input1 += "5";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 key6.addEventListener("click", function(){
-  display.innerHTML += "6";
+  input1 += "6";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 key7.addEventListener("click", function(){
-  display.innerHTML += "7";
+  input1 += "7";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 key8.addEventListener("click", function(){
-  display.innerHTML += "8";
+  input1 += "8";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 key9.addEventListener("click", function(){
-  display.innerHTML += "9";
+  input1 += "9";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 key0.addEventListener("click", function(){
-  display.innerHTML += "0";
+  input1 += "0";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 key00.addEventListener("click", function(){
-  display.innerHTML += "00";
+  input1 += "00";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 keyClear.addEventListener("click", function(){
   display.innerHTML = "";
@@ -68,7 +93,6 @@ keyClear.addEventListener("click", function(){
 
 //ADD
 keyAdd.addEventListener("click", function(){
-  toNum(getDisplay);
 
 });
 
@@ -80,7 +104,9 @@ keySubtract.addEventListener("click", updateDisplay);
 keyMultiply.addEventListener("click", updateDisplay);
 keyDivide.addEventListener("click", updateDisplay);
 keyDecimal.addEventListener("click", function(){
-  display.innerHTML += ".";
+  input1 += ".";
+  window.calculator.load(toNum(input1));
+  display.innerHTML = input1;
 });
 keyBalance.addEventListener("click", updateDisplay);
 keyDeposit.addEventListener("click", updateDisplay);
@@ -94,7 +120,7 @@ function updateDisplay(){
 }
 
 function toNum(input){
-  Number(input) = display.innterHTML;
+  return parseFloat(input);
 }
 
 
