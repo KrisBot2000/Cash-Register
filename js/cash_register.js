@@ -4,7 +4,9 @@ const getDisplay = document.getElementById("display");
 let balance = 0;
 let input1 = "";
 let input2 = "";
-let operator = null;
+let lastOperator = null;
+let turtle;
+let getTotal = window.calculator.getTotal;
 
 //grab elements
 const key1 = document.getElementById("key1");
@@ -33,94 +35,206 @@ const keyEqual = document.getElementById("keyEqual");
 //add event listeners (manipulate elements)
 key1.addEventListener("click", function(){
   input1 += "1";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
 
 key2.addEventListener("click", function(){
   input1 += "2";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
 key3.addEventListener("click", function(){
   input1 += "3";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
 key4.addEventListener("click", function(){
   input1 += "4";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
 key5.addEventListener("click", function(){
   input1 += "5";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
 key6.addEventListener("click", function(){
   input1 += "6";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
 key7.addEventListener("click", function(){
   input1 += "7";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
 key8.addEventListener("click", function(){
   input1 += "8";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
 key9.addEventListener("click", function(){
   input1 += "9";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
 key0.addEventListener("click", function(){
   input1 += "0";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
 key00.addEventListener("click", function(){
   input1 += "00";
-  window.calculator.load(toNum(input1));
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
   display.innerHTML = input1;
 });
+
+keyDecimal.addEventListener("click", function(){
+  input1 += ".";
+  console.log("getTotal()", getTotal());
+  if(getTotal() === 0){
+    window.calculator.load(toNum(input1));}
+  display.innerHTML = input1;
+});
+
+//CLEAR///////////////////////////////
+
 keyClear.addEventListener("click", function(){
+  input1 = "";
+  //window.calculator.load(toNum(input1));
   display.innerHTML = "";
 });
 
+//////////////////////////////////
+
 //ADD
 keyAdd.addEventListener("click", function(){
-
+  input2 = input1;
+  input1 = "";
+  lastOperator = "add";
+  display.innerHTML = "";
 });
 
-
-
-
-
-keySubtract.addEventListener("click", updateDisplay);
-keyMultiply.addEventListener("click", updateDisplay);
-keyDivide.addEventListener("click", updateDisplay);
-keyDecimal.addEventListener("click", function(){
-  input1 += ".";
-  window.calculator.load(toNum(input1));
-  display.innerHTML = input1;
+//SUBTRACT
+keySubtract.addEventListener("click", function(){
+  input2 = input1;
+  input1 = "";
+  lastOperator = "subtract";
+  display.innerHTML = "";
 });
+
+//MULTIPLY
+keyMultiply.addEventListener("click", function(){
+  input2 = input1;
+  input1 = "";
+  lastOperator = "multiply";
+  display.innerHTML = "";
+});
+
+//DIVIDE
+keyDivide.addEventListener("click", function(){
+  input2 = input1;
+  input1 = "";
+  lastOperator = "divide";
+  display.innerHTML = "";
+});
+
+///////////////////////////////////
+
 keyBalance.addEventListener("click", updateDisplay);
 keyDeposit.addEventListener("click", updateDisplay);
-keyWithdraw.addEventListener("click", updateDisplay);
-keyEqual.addEventListener("click", updateDisplay);
 
+keyWithdraw.addEventListener("click", function(){
+  // input2 = input1;
+  // input1 = "";
+  // display.innerHTML = "";
+});
+
+//EQUAL
+keyEqual.addEventListener("click", function(){
+  arithmetic(lastOperator);
+});
+
+//FUNCTIONS//////////////////////////
 function updateDisplay(){
   getDisplay;
 
   console.log("HI");
 }
 
+//converts string input to a number
 function toNum(input){
   return parseFloat(input);
+}
+
+//does math
+function arithmetic(operator){
+
+  if(operator==="add"){
+    console.log(lastOperator);
+    console.log(window.calculator);
+    turtle = window.calculator.add(toNum(input1));
+    input2 += input1;
+    input1 = "";
+    display.innerHTML = turtle;
+  }
+  if(operator==="subtract"){
+    console.log(lastOperator);
+    console.log(window.calculator);
+    turtle = window.calculator.subtract(toNum(input1));
+    input2 += input1;
+    input1 = "";
+    display.innerHTML = turtle;
+  }
+  if(operator==="multiply"){
+    console.log(lastOperator);
+    console.log(window.calculator);
+    turtle = window.calculator.multiply(toNum(input1));
+    input2 += input1;
+    input1 = "";
+    display.innerHTML = turtle;
+  }
+  if(operator==="divide"){
+    console.log(lastOperator);
+    console.log(window.calculator);
+    turtle = window.calculator.divide(toNum(input1));
+    input2 += input1;
+    input1 = "";
+    display.innerHTML = turtle;
+  }
+
 }
 
 

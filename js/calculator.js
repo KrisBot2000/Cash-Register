@@ -18,22 +18,28 @@ window.calculator = (function () {
 
   function add(x){
     validation(x);
+    console.log(total);
+    console.log(x);
     total += x;
+    return total;
   }
 
   function subtract(x){
     validation(x);
     total -= x;
+    return total;
   }
 
   function multiply(x){
     validation(x);
     total = total*x;
+    return total;
   }
 
   function divide(x){
     validation(x);
     total = total/x;
+    return total;
   }
 
 
